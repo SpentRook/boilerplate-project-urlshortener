@@ -36,7 +36,7 @@ app.post("/api/shorturl", (req, res) => {
     res.json({ original_url : url, short_url : counter})
   } catch (error) {
     console.error(error)
-    res.status(400).json({error: 'invalid url'})
+    res.json({error: 'invalid url'})
   }
 })
 
