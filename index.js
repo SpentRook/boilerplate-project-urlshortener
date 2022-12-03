@@ -30,6 +30,7 @@ app.get('/api/hello', function(_req, res) {
 app.post("/api/shorturl", (req, res) => {
   try {
     const url = new URL(req.body.url)
+    if(url.protocol !== 'https' || url.protocol !== 'http') throw new Error('Invalid URL')
     counter++
     mapUrls[counter] = url
     res.json({ original_url : url, short_url : counter})
